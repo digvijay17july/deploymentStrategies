@@ -1,0 +1,33 @@
+# OPENSHIFT COMMAND TO CREATE NEW PROJECT
+  
+  oc new-project oc new-project epfo-demo-ab-deplyment
+
+# OPENSHIFT COMMAND TO CREATE PRODUCTION LEVEL APP
+  
+   oc new-app openshift/deployment-example1 --name=ab-example-a
+   
+# OPENSHIFT COMMAND TO CREATE DDIFFERENT VERSION APP
+  
+   oc new-app openshift/deployment-example1 --name=ab-example-a
+
+
+# Expose the deployment configuration to create a service Production Level
+    
+     oc expose dc/ab-example-a --name=ab-example-A
+     
+# Expose the deployment configuration to create a service Different Version
+     
+     oc expose dc/ab-example-b --name=ab-example-B
+    
+# EXPOSE THE PRODUCTION LEVEL APP
+    
+    oc expose svc/ab-example-A
+   
+# MANAGING WEIGHTS USING THE CLI
+
+    oc set route-backends web ab-example-A=198 ab-example-B=2
+
+#DISPLAY CURRENT INFORMATION 
+
+    oc set route-backends web
+  
