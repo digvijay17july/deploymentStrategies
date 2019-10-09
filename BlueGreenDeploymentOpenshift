@@ -1,0 +1,22 @@
+# OPENSHIFT COMMAND TO CREATE NEW PROJECT
+  
+  oc new-project oc new-project epfo-demo
+  
+# OPENSHIFT COMMAND TO PULL IMAGE FROM REGISTRY AND CREATE SAMPLE APP WITH GREEN TAG AND VERSION AS V1
+  
+  oc new-app openshift/deployment-example:v1 --name=example-green
+  
+# OPENSHIFT COMMAND TO PULL IMAGE FROM REGISTRY AND CREATE SAMPLE APP WITH BLUE TAG AND VERSION AS V1
+
+  oc new-app openshift/deployment-example:v2 --name=example-blue
+
+# OPENSHIFT EXPOSE ROUTE
+   oc expose svc/example-green --name=bluegreen-example
+   
+# Browse to the application at example-green.<project>.<router_domain> to verify you see the v1 image.
+
+  
+  
+#  Edit the route and change the service name to example-blue:
+
+   oc patch route/bluegreen-example -p '{"spec":{"to":{"name":"example-blue"}}}'
