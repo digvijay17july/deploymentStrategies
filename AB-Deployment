@@ -4,12 +4,11 @@
 
 # OPENSHIFT COMMAND TO CREATE PRODUCTION LEVEL APP
   
-   oc new-app openshift/deployment-example1 --name=ab-example-a
+   oc new-app https://github.com/digvijay17july/Grocery-Shopping-Token-Management-Module  --name=ab-example-a  --strategy=docker
    
 # OPENSHIFT COMMAND TO CREATE DDIFFERENT VERSION APP
   
-   oc new-app openshift/deployment-example1 --name=ab-example-a
-
+   oc new-app https://github.com/digvijay17july/Grocery-Shopping-Token-Management-Module  --name=ab-example-b  --strategy=docker
 
 # Expose the deployment configuration to create a service Production Level
     
