@@ -12,19 +12,19 @@
 
 # Expose the deployment configuration to create a service Production Level
     
-     oc expose dc/ab-example-a --name=ab-example-A
+     oc expose dc/ab-example-a --name=ab-example-a
      
 # Expose the deployment configuration to create a service Different Version
      
-     oc expose dc/ab-example-b --name=ab-example-B
+     oc expose dc/ab-example-b --name=ab-example-b
     
 # EXPOSE THE PRODUCTION LEVEL APP
     
-    oc expose svc/ab-example-A
+    oc expose svc/ab-example-a
    
 # MANAGING WEIGHTS USING THE CLI
 
-    oc set route-backends web ab-example-A=198 ab-example-B=2
+    oc set route-backends web ab-example-a=198 ab-example-b=2
 
 #DISPLAY CURRENT INFORMATION 
 
