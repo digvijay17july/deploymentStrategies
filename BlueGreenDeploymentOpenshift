@@ -1,6 +1,6 @@
 # OPENSHIFT COMMAND TO CREATE NEW PROJECT
   
-  oc new-project oc new-project epfo-demo-blue-green-deplyment
+  oc new-project epfo-demo-blue-green-deplyment
   
 # OPENSHIFT COMMAND TO PULL IMAGE FROM REGISTRY AND CREATE SAMPLE APP WITH GREEN TAG AND VERSION AS V1
   
