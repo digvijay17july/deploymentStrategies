@@ -1,6 +1,6 @@
 # OPENSHIFT COMMAND TO CREATE NEW PROJECT
   
-  oc new-project oc new-project epfo-demo-ab-deplyment
+ oc new-project epfo-demo-ab-deplyment
 
 # OPENSHIFT COMMAND TO CREATE PRODUCTION LEVEL APP
   
