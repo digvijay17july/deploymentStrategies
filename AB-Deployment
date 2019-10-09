@@ -24,7 +24,7 @@
    
 # MANAGING WEIGHTS USING THE CLI
 
-    oc set route-backends web ab-example-a=198 ab-example-b=2
+    oc set route-backends ab-example-a ab-example-a=198 ab-example-b=2
 
 #DISPLAY CURRENT INFORMATION 
 
