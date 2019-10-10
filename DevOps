@@ -16,7 +16,7 @@
  
  oc new-app jenkins-ephemeral -n cicd-$PRJ_SUFFIX 
  
- oc  new-app -f template.yaml -p DEV_PROJECT=dev-$PRJ_SUFFIX  -p STAGE_PROJECT=stage-epfo -n cicd-$PRJ_SUFFIX 
+ oc  new-app -f template.yaml -p DEV_PROJECT=dev-$PRJ_SUFFIX  -p STAGE_PROJECT=stage-$PRJ_SUFFIX -n cicd-$PRJ_SUFFIX 
 
 
 oc set triggers dc/jenkins --remove --from-image jenkins:2 -n cicd-$PRJ_SUFFIX 
