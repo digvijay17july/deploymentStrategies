@@ -1,6 +1,39 @@
+# CI/CD Demo
+  
+  # commands to create new project 
+   oc  new-project dev-$PRJ_SUFFIX   --display-name="Tasks - Dev"
+   oc  new-project stage-$PRJ_SUFFIX --display-name="Tasks - Stage"
+   oc  new-project cicd-$PRJ_SUFFIX  --display-name="CI/CD"
+
+ # commands to role admin 
+  oc  policy add-role-to-group edit admin:serviceaccounts:cicd-$PRJ_SUFFIX -n dev-$PRJ_SUFFIX
+  oc  policy add-role-to-group edit admin:serviceaccounts:cicd-$PRJ_SUFFIX -n stage-$PRJ_SUFFIX
+
+ # command to connect projects 
+  oc  adm pod-network join-projects --to=cicd-$PRJ_SUFFIX dev-$PRJ_SUFFIX stage-$PRJ_SUFFIX 
+  
+ #command to start jenkins as service
+ 
+ oc new-app jenkins-ephemeral -n cicd-$PRJ_SUFFIX 
+ 
+ oc  new-app -f template.yaml -p DEV_PROJECT=dev-$PRJ_SUFFIX  -p STAGE_PROJECT=stage-epfo -n cicd-$PRJ_SUFFIX 
+
+
+oc set triggers dc/jenkins --remove --from-image jenkins:2 -n cicd-$PRJ_SUFFIX 
+
+oc set image dc/jenkins  jenkins=registry.redhat.io/openshift3/jenkins-2-rhel7@sha256:386f7a43af90a79eabe521be05fc6c2fad873c14b6dd53bbac38dc5418837f39 -n cicd-$PRJ_SUFFIX 
+
+
+ 
 #DevOps dictates a new approach to cloud development
 
 The last couple of years has seen some huge shift in the way companies function.
 Recent advancements in information technology have seen an ever-growing number of companies and 
 corporations adopt them and utilize them to their merits in order to maximize profits.
 Two such recent advancements have been DevOps and cloud computing.
+
+Starting with how we started development 
+ex - building application on Mainframes, than sessions based java applications
+()
+
+
